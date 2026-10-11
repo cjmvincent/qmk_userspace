@@ -1,6 +1,83 @@
-# QMK Userspace
+![keyboards preview](images/keyboard_preview.jpg)
 
-This is a template repository which allows for an external set of QMK keymaps to be defined and compiled. This is useful for users who want to maintain their own keymaps without having to fork the [main QMK repository](https://github.com/qmk/qmk_firmware). You must still fork the main QMK repository if writing firmware for a *new* keyboard.
+# Mechanical Keyboards
+
+Hey ya'll! This is a small repository where I keep all my configuration files for various keyboards, macropads, and oddities. I've had varying keyboards in the past, but have finally settled on the 40% layout.
+
+# Keymaps 
+Since I have finally delved into the 40s life I've had to really focus on curating layers and keymaps that included everything I needed and exists in places that make sense to me. 
+
+Note: My QWERTY layer includes HRMs CAGS/⎈⎇◆⇧
+
+### QWERTY
+
+```
+      q  │  w  │  e  │  r  │  t          y  │  u  │  i  │  o  │  p  
+    ─────┼─────┼─────┼─────┼─────      ─────┼─────┼─────┼─────┼─────
+      a  │  s  │  d  │  f  │  g          h  │  j  │  k  │  l  │  ;  
+    ─────┼─────┼─────┼─────┼─────      ─────┼─────┼─────┼─────┼─────
+      z  │  x  │  c  │  v  │  b          n  │  m  │  ,  │  .  │  /  
+    ─────┴─────┴─────┴─────┴─────      ─────┴─────┴─────┴─────┴─────
+                ─────┌─────┬─────┐    ┌─────┬─────┐─────
+                LLCK │ Del │ Bspc│    │ Spc │ Spc │ LLCK
+                ─────└─────┴─────┘    └─────┴─────┘─────
+```
+
+### NUMPAD
+
+```
+         │     │  ↑  │     │            NUM │  7  │  8  │  9  │  -  
+    ─────┼─────┼─────┼─────┼─────      ─────┼─────┼─────┼─────┼─────
+         │  ←  │  ↓  │  →  │             /  │  4  │  5  │  6  │  +  
+    ─────┼─────┼─────┼─────┼─────      ─────┼─────┼─────┼─────┼─────
+         │     │     │     │             *  │  1  │  2  │  3  │  .  
+    ─────┴─────┴─────┴─────┴─────      ─────┴─────┴─────┴─────┴─────
+                ─────┌─────┬─────┐    ┌─────┬─────┐─────
+                TRNS │     │     │    │  =  │  0  │ TRNS
+                ─────└─────┴─────┘    └─────┴─────┘─────
+```
+
+### NAVI
+
+```
+         │     │     │     │           HOME │PGDN │PGUP │ END │     
+    ─────┼─────┼─────┼─────┼─────      ─────┼─────┼─────┼─────┼─────
+         │     │ MS2 │ MS1 │             ←  │  ↓  │  ↑  │  →  │     
+    ─────┼─────┼─────┼─────┼─────      ─────┼─────┼─────┼─────┼─────
+         │     │     │     │                │     │     │     │     
+    ─────┴─────┴─────┴─────┴─────      ─────┴─────┴─────┴─────┴─────
+                ─────┌─────┬─────┐    ┌─────┬─────┐─────
+                TRNS │     │     │    │     │     │ TRNS
+                ─────└─────┴─────┘    └─────┴─────┘─────
+```
+
+### SYMBOLS
+
+```
+      !  │  @  │  #  │  $  │  %          ^  │  &  │  *  │     │     
+    ─────┼─────┼─────┼─────┼─────      ─────┼─────┼─────┼─────┼─────
+      (  │  <  │  [  │  {  │  `          ~  │  }  │  ]  │  >  │  )  
+    ─────┼─────┼─────┼─────┼─────      ─────┼─────┼─────┼─────┼─────
+      ;  │  :  │  '  │  "  │  b          -  │  _  │  \  │  |  │  /  
+    ─────┴─────┴─────┴─────┴─────      ─────┴─────┴─────┴─────┴─────
+                ─────┌─────┬─────┐    ┌─────┬─────┐─────
+                TRNS │     │     │    │     │     │ TRNS
+                ─────└─────┴─────┘    └─────┴─────┘─────
+```
+
+### FUNC
+
+```
+         │     │     │     │                │  F1 │  F2 │  F3 │  F4    
+    ─────┼─────┼─────┼─────┼─────      ─────┼─────┼─────┼─────┼─────
+         │     │     │     │                │  F5 │  F6 │  F7 │  F8  
+    ─────┼─────┼─────┼─────┼─────      ─────┼─────┼─────┼─────┼─────
+         │     │     │     │                │  F9 │ F10 │ F11 │ F12  
+    ─────┴─────┴─────┴─────┴─────      ─────┴─────┴─────┴─────┴─────
+                ─────┌─────┬─────┐    ┌─────┬─────┐─────
+                TRNS │     │     │    │     │     │ TRNS
+                ─────└─────┴─────┘    └─────┴─────┘─────
+```
 
 ## Howto configure your build targets
 
@@ -19,14 +96,6 @@ This is a template repository which allows for an external set of QMK keymaps to
     * Listing the build targets can be done with `qmk userspace-list`
 1. Commit your changes
 
-## Howto build with GitHub
-
-1. In the GitHub Actions tab, enable workflows
-1. Push your changes above to your forked GitHub repository
-1. Look at the GitHub Actions for a new actions run
-1. Wait for the actions run to complete
-1. Inspect the Releases tab on your repository for the latest firmware build
-
 ## Howto build locally
 
 1. Run the normal `qmk setup` procedure if you haven't already done so -- see [QMK Docs](https://docs.qmk.fm/#/newbs) for details.
@@ -38,22 +107,3 @@ This is a template repository which allows for an external set of QMK keymaps to
 1. Compile normally: `qmk compile -kb your_keyboard -km your_keymap` or `make your_keyboard:your_keymap`
 
 Alternatively, if you configured your build targets above, you can use `qmk userspace-compile` to build all of your userspace targets at once.
-
-## Extra info
-
-If you wish to point GitHub actions to a different repository, a different branch, or even a different keymap name, you can modify `.github/workflows/build_binaries.yml` to suit your needs.
-
-To override the `build` job, you can change the following parameters to use a different QMK repository or branch:
-```
-    with:
-      qmk_repo: qmk/qmk_firmware
-      qmk_ref: master
-```
-
-If you wish to manually manage `qmk_firmware` using git within the userspace repository, you can add `qmk_firmware` as a submodule in the userspace directory instead. GitHub Actions will automatically use the submodule at the pinned revision if it exists, otherwise it will use the default latest revision of `qmk_firmware` from the main repository.
-
-This can also be used to control which fork is used, though only upstream `qmk_firmware` will have support for external userspace until other manufacturers update their forks.
-
-1. (First time only) `git submodule add https://github.com/qmk/qmk_firmware.git`
-1. (To update) `git submodule update --init --recursive`
-1. Commit your changes to your userspace repository
